@@ -1,0 +1,26 @@
+body {
+  background-color: black;
+}
+p {
+  color: green;
+}
+
+@font-face {
+  font-family: pigCipher;
+  src: url(PigpenCipher.otf);
+}
+
+p1 {
+  font-family: pigCipher;
+  color: green;
+  font-size: 40px;
+}
+
+.centered{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50 px;
+  margin-left: -100px;
+}
+
