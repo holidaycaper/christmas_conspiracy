@@ -21,12 +21,21 @@ div1 {
 
 .prompt{
   font-family: 'Courier New', Courier, monospace;
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
-  margin-top: 300;
+  margin-top: -150;
   margin-left: 80;
-  margin-bottom: -200;
+  margin-bottom: -250;
+}
+.prompt1{
+  font-family: 'Courier New', Courier, monospace;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: 100;
+  margin-left: -400;
+  margin-bottom: -250;
 }
 
 .centered{
