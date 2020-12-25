@@ -1,22 +1,63 @@
 <head>
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="typewriter.css">
+  <title>X-mas Riddles</title>
 </head>
 
 <body>
   <a href="index.html">Back</a>
 
-  <p> My research has yielded an esoteric map; some sort of arcane set of instructions, leading to some... secret word?</p>
+  <p> "The -[REDACTED]- has come through, allowing me to continue my research. The discovery at -[REDACTED]- <br>
+    seems to be an esoteric map; some sort of arcane set of instructions. I've not cracked it, but... perhaps<br>
+    taking a moment to linger over the numbers... Perhaps this is what -[REDACTED]- was searching for back in Ninete"</p>
+    <p style="font-style: italic; font-size: smaller;">- An excerpt from the last (unfinished) journal entry of late Professor Wales-Sanger </p>
   <h2>At the site of all knowledge, find the site of old knowledge, burned long ago.</h2>
   <h2>Follow the path to find the song of the Spider,</h2>
   <h2>Gross Incandesence given Form</h2>
   <body>
-    <div class="typing-animation" id="riddle" string_input =   "(AL, 53)<br>(CULT, 21)<br>(WA, 15)<br>(SU, 3)<br>(SP, 2)<br>(MIL, 1)<br>(INT, 3)<br>(SOU, 3)<br>(SU, 1)">
-      <span id="quote"></span>
+    <div class="tooltip">
+      <div class="typing-animation" id="riddle" string_input =   "(AL, 53)<br>(CULT, 21)<br>(WA, 15)<br>(SU, 3)<br>(SP, 2)<br>(MIL, 1)<br>(INT, 3)<br>(SOU, 3)<br>(SU, 1)">
+        <span id="quote"></span>
+        <span class="tooltiptext">
+          Slayer of the Knot, <br>
+          His subsequent forms<br>
+          Quis custodiet ipsos custodes<br>
+          New cinematic norms.<br>
+
+          Guardian of the polis,<br>
+          And his young protege<br>
+          Their silver screen adventure<br>
+          Think of the notes along the way.<br>
+        </span>
+      </div>
     </div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
     <script  src="./typing.js">
     </script>
 
   </body>
+  <script>
+    function riddleAnswerChecker() {
+      var x = document.getElementById("riddleAnswer").value.toLowerCase();
+      var wrongAnswerResponses = ["Oh dear... not quite there...", "An unfortunate mistake", "Perhaps consider retracing your steps?", "Maps can be terribly difficult."];
+
+      if (x == "sunflower") {
+        document.getElementById("feedbackCorrect").style="color: green;"
+        document.getElementById("feedbackWrong").style="color: red; visibility: hidden;"
+
+      } else {
+        document.getElementById("feedbackWrong").innerHTML=wrongAnswerResponses[Math.floor(Math.random()*wrongAnswerResponses.length)]
+        document.getElementById("feedbackWrong").style="color: red;"
+        document.getElementById("feedbackCorrect").style="color: green; visibility: hidden;"
+      }
+    }
+  </script>
+  <div class="container">
+
+      <input type="text" id ="riddleAnswer" name="fname" style="margin-top: 50;">
+      <button onclick="riddleAnswerChecker()">Check</button>
+    <span id="feedbackCorrect" style="color: green; visibility: hidden;">One step closer to the end...</span>
+    <span id="feedbackWrong" style="color: red; visibility: hidden;"></span>
+
+  </div>
 </body>

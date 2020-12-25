@@ -1,12 +1,12 @@
 <head>
   <link rel="stylesheet" href="main.css">
   <link rel="stylesheet" href="typewriter.css">
+  <title>X-mas Riddles</title>
+
 </head>
 <body>
   <a href="index.html">Back</a>
-  <div class="typing-animation" id="riddle" string_input = "On a ship that never swims<br>A man creeps around<br>Can't see his own mistakes<br>So they tend to abound"
-
-  >
+  <div class="typing-animation" id="riddle" string_input = "On a ship that never swims<br>A man creeps around<br>Can't see his own mistakes<br>So they tend to abound">
     <span id="quote"></span>
   </div>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
@@ -14,3 +14,26 @@
   </script>
 
 </body>
+
+<script>
+  function riddleAnswerChecker() {
+    var x = document.getElementById("riddleAnswer").value.toLowerCase();
+    var wrongAnswerResponses = ["Seems you've gotten a bit off course", "More mistakes", "Brute force is as valid as any strategy I suppose..."];
+    if (x == "geordi" || x == "geordi laforge") {
+      document.getElementById("feedbackCorrect").style="color: green;"
+      document.getElementById("feedbackWrong").style="color: red; visibility: hidden;"
+
+    } else {
+      document.getElementById("feedbackWrong").innerHTML=wrongAnswerResponses[Math.floor(Math.random()*wrongAnswerResponses.length)]
+      document.getElementById("feedbackWrong").style="color: red;"
+      document.getElementById("feedbackCorrect").style="color: green; visibility: hidden;"
+    }
+  }
+</script>
+<div class="container">
+
+    <input type="text" id ="riddleAnswer" name="fname" style="margin-top: 50;">
+    <button onclick="riddleAnswerChecker()">Check</button>
+  <span id="feedbackCorrect" style="color: green; visibility: hidden;">An applause worthy performance!</span>
+  <span id="feedbackWrong" style="color: red; visibility: hidden;"></span>
+</div>

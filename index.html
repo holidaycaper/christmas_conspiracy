@@ -1,12 +1,18 @@
 <head>
   <link rel="stylesheet" href="main.css">
+  <title>X-mas Riddles</title>
 </head>
 
 <body>
-  <img src="pigDrawing.png" style="height: 30% ;image-rendering: pixelated; poistion: absolute; top: 8px; left:16px;">
-  <img src="pyramid.png" style="height: 30%; position:absolute; right: 0px; bottom: 0px;">
+  <a href="https://www.youtube.com/watch?v=_nnBLMdwbQQ" style="cursor: default;">
+    <img src="pixelPigDrawing.png" style="height: 30% ;image-rendering: pixelated; poistion: absolute; top: 8px; left:16px;">
+  </a>
 
-  <div class = "prompt">
+  <a href="https://www.youtube.com/watch?v=Z6usKhzL8uI" style="cursor: default;">
+    <img src="pixelPyramid.png" style="height: 30%; position:absolute; right: 0px; top: 8px;">
+  </a>
+
+  <div class = "centered" style="margin-left: -200; margin-top: -200;">
     <p> Hello. You have stumbled upon quite a riddle, haven't you. </p>
   </div>
 
@@ -52,13 +58,35 @@
     </div>
   </span>
   </div>
-  <div class="riddles">
-    <ul>
-    <li><a href="riddle1.html">The Lost Verse</a></li>
-    <li><a href="riddle2.html">Riddle of the Modern Mariner</a></li>
-    <li><a href="riddle3.html">The Lost Map</a></li>
-    <li><p>Solve the code. Find the drop point. Get the prize.</p></li>
+  <div class="riddles" style="text-align: justify; margin-left: 350;">
+    <ul style="list-style: none; width: 700px;">
+    <li><a href="riddle1.html">The Lost Verse:</a> Never cared for poetry myself, but the Old Guard seems interested in this one. </li>
+    <li><a href="riddle2.html">Riddle of the Modern Mariner:</a> Our Mozambique operative recovered the Blackberry lost in Palo Alto. Much of the data seems to have been corrupted, but perhaps...</li>
+    <li><a href="riddle3.html">The Lost Map:</a> Members of our South American network excised this information from an old hard drive in that warehouse in the Mojave. What we got seems to be a map of sorts; the agents seemed to think it led somewhere important. None of them seem to have been left in any state ready to make heads or tales of it though.</li>
+    <li><p>Solve the code. Find the Passwords. Get the prize.</p></li>
     </ul>
   </div>
 </body>
+<script>
+  function riddleAnswerChecker() {
+    var x = document.getElementById("riddleAnswer").value.toLowerCase();
+    var wrongAnswerResponses = [
+      "Oh please...", "Not quite...", "Surely you can do better", "Maybe in another universe."];
+    if (x == "dink") {
+      document.getElementById("feedbackCorrect").style="font-family: 'Courier New', Courier, monospace; color: green;margin-top: 10; margin-left:500;"
+      document.getElementById("feedbackWrong").style="color: red; visibility: hidden;"
+
+    } else {
+      document.getElementById("feedbackWrong").innerHTML=wrongAnswerResponses[Math.floor(Math.random()*wrongAnswerResponses.length)]
+      document.getElementById("feedbackWrong").style="font-family: 'Courier New', Courier, monospace; color: red;margin-top: 10; margin-left:500;"
+      document.getElementById("feedbackCorrect").style="color: green; visibility: hidden;"
+    }
+  }
+</script>
+<div class="container">
+  <input type="text" id ="riddleAnswer" name="fname" style="margin-top: -20; margin-left: 250;">
+  <button onclick="riddleAnswerChecker()" style="margin-top: -15; margin-left:500;">Check</button>
+  <span id="feedbackCorrect" style="color: green; visibility: hidden;margin-top: -15; margin-left:500;">You didn't just guess, did you?</span>
+  <span id="feedbackWrong" style="color: red; visibility: hidden;margin-top: -15; margin-left:500;"></span>
+</div>
 
