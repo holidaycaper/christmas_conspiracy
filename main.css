@@ -334,6 +334,7 @@ div1 {
 	border-color: green;
 	border:double;
 }
+
 .container button{
 	position: fixed;
 	top: 50%;
@@ -350,6 +351,14 @@ div1 {
 	top: 50%;
   left: 50%;
   margin-top: 150;
+  margin-left: 80;
+	margin-bottom: -250;
+}
+.container p{
+	position: fixed;
+	top: 50%;
+  left: 50%;
+  margin-top: -100;
   margin-left: 80;
 	margin-bottom: -250;
 }

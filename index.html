@@ -3,76 +3,61 @@
   <title>X-mas Riddles</title>
 </head>
 
-<body>
-  <a href="https://www.youtube.com/watch?v=_nnBLMdwbQQ" style="cursor: default;">
-    <img src="pixelPigDrawing.png" style="height: 30% ;image-rendering: pixelated; poistion: absolute; top: 8px; left:16px;">
-  </a>
-
-  <a href="https://www.youtube.com/watch?v=Z6usKhzL8uI" style="cursor: default;">
-    <img src="pixelPyramid.png" style="height: 30%; position:absolute; right: 0px; top: 8px;">
-  </a>
-
-  <div class = "centered" style="margin-left: -200; margin-top: -200;">
-    <p> Hello. You have stumbled upon quite a riddle, haven't you. </p>
+<body onload="showWhichDiv()">
+  <div class="typing-animation" id="riddle" string_input='<p> > Welcome back, agent.
+    <br> >      <br> >      <br> >      <br> >      <br> >      <br> >      <br> >      <br> >      <br>
+    > Or perhaps hello for the first time.
+     <br> >      <br> >      <br> >     <br>
+     > The order of things gets tricky to keep track of from where we are.
+     <br> >      <br> >      <br> >     <br>
+    > Regardless we have (or had? Perhaps will have) a task for you.
+    <br> >      <br> >      <br>
+  > One of our assets has/will gone/go missing. His work must be completed, <br>
+  though sadly he was/is/will be unable to complete it.
+  <br> >      <br> >      <br>
+> Be a dear, finish it up for us?
+<br> >      <br> >      <br>
+> Your briefing, should/as you will/have/are accept(ing) this job.
+<br> >      <br>
+<a href="psych_profile.html">"Briefing" </a></p> <br>
+> The formula interface: <br>
+<p><a href="periodic.html">Periodic</a></p>
+  '>
+    <span id="quote"></span>
   </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+  <script  src="./typing.js">
+  </script>
 
-
-
-  <div class="caption"
-  style="-moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"
-  unselectable="on">
-    <span>
-    <div class="text-box1">
-			<div>a</div>
-			<div>w</div>
-      <div>r</div>
-      <div>y</div>
-      <div>d</div>
-    </div>
-  </span>
-    <span>
-    <div class="text-box2">
-			<div>w</div>
-			<div>a</div>
-      <div>e</div>
-      <div>r</div>
-      <div>i</div>
-    </div>
-  </span>
-  <span>
-    <div class="text-box3">
-			<div>u</div>
-			<div>a</div>
-      <div>l</div>
-      <div>x</div>
-      <div>n</div>
-    </div>
-  </span>
-  <span>
-    <div class="text-box4">
-			<div>v</div>
-			<div>a</div>
-      <div>d</div>
-      <div>l</div>
-      <div>k</div>
-    </div>
-  </span>
-  </div>
-  <div class="riddles" style="text-align: justify; margin-left: 350;">
-    <ul style="list-style: none; width: 700px;">
-    <li><a href="riddle1.html">The Lost Verse:</a> Never cared for poetry myself, but the Old Guard seems interested in this one. </li>
-    <li><a href="riddle2.html">Riddle of the Modern Mariner:</a> Our Mozambique operative recovered the Blackberry lost in Palo Alto. Much of the data seems to have been corrupted, but perhaps...</li>
-    <li><a href="riddle3.html">The Lost Map:</a> Members of our South American network excised this information from an old hard drive in that warehouse in the Mojave. What we got seems to be a map of sorts; the agents seemed to think it led somewhere important. None of them seem to have been left in any state ready to make heads or tales of it though.</li>
-    <li><p>Solve the code. Find the Passwords. Get the prize.</p></li>
-    </ul>
+  <div class="after_first_load" style="visibility: hidden;" id="prompt_after_load">
+    <p> > Welcome back, agent.
+      <br> >      <br> >      <br> >      <br> >      <br> >      <br> >      <br> >      <br> >      <br>
+      > Or perhaps hello for the first time.
+       <br> >      <br> >      <br> >     <br>
+       > The order of things gets tricky to keep track of from where we are.
+       <br> >      <br> >      <br> >     <br>
+      > Regardless we have (or had? Perhaps will have) a task for you.
+      <br> >      <br> >      <br>
+    > One of our assets has/will gone/go missing. His work must be completed, <br>
+    though sadly he was/is/will be unable to complete it.
+    <br> >      <br> >      <br>
+  > Be a dear, finish it up for us?
+  <br> >      <br> >      <br>
+  > Your briefing, should/as you will/have/are accept(ing) this job.
+  <br> >      <br>
+  <a href="psych_profile.html">Briefing</a></p> <br>
+  > The formula interface: <br>
+  <p><a href="periodic.html">Connect to central assay engine</a></p>
   </div>
 </body>
+
+
 <script>
   function riddleAnswerChecker() {
     var x = document.getElementById("riddleAnswer").value.toLowerCase();
     var wrongAnswerResponses = [
-      "Oh please...", "Not quite...", "Surely you can do better", "Maybe in another universe."];
-    if (x == "dink") {
+      "UNLIKELY", "I WOULD HAVE EXPECTED MORE", "ILLOGICAL"];
+    if (x == "london") {
       document.getElementById("feedbackCorrect").style="font-family: 'Courier New', Courier, monospace; color: green;margin-top: 10; margin-left:500;"
       document.getElementById("feedbackWrong").style="color: red; visibility: hidden;"
 
@@ -82,11 +67,29 @@
       document.getElementById("feedbackCorrect").style="color: green; visibility: hidden;"
     }
   }
+
+  function haveLoadedOnce() {
+    sessionStorage.setItem("loaded_once", "true")
+  }
+
+  function showWhichDiv() {
+  if ("loaded_once" in sessionStorage )
+   {
+     if (sessionStorage.getItem("loaded_once") == "true") {
+      document.getElementById("riddle").style = "display: none;"
+      document.getElementById("prompt_after_load").style = ""
+
+    }
+    } else {
+      sessionStorage.setItem("loaded_once", "true")
+    }
+  }
 </script>
 <div class="container">
+  <p> When you have uncovered the true nature of the [REDACTED] submit it to central S.A.I.T.O.</p>
   <input type="text" id ="riddleAnswer" name="fname" style="margin-top: -20; margin-left: 250;">
   <button onclick="riddleAnswerChecker()" style="margin-top: -15; margin-left:500;">Check</button>
-  <span id="feedbackCorrect" style="color: green; visibility: hidden;margin-top: -15; margin-left:500;">You didn't just guess, did you?</span>
+  <span id="feedbackCorrect" style="color: green; visibility: hidden;margin-top: -15; margin-left:500;">LOGICAL CONCLUSION</span>
   <span id="feedbackWrong" style="color: red; visibility: hidden;margin-top: -15; margin-left:500;"></span>
 </div>
 

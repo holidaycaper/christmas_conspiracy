@@ -1,0 +1,83 @@
+<head>
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="typewriter.css">
+  <title>X-mas Riddles</title>
+
+</head>
+
+<body>
+  <!-- <div style="margin: auto; width: 99%"> -->
+<img src = "NeonGreenPeriodicTable.jpg" style="height: 60%; margin-right: auto; display: block">
+<p id="correctFormula"></p>
+<div id="final">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+  <script  src="./typing.js">
+  </script>
+</div>
+<p><a href="index.html"> > Return to Root </a></p>
+<!-- </div> -->
+
+<script>
+
+  var y = [];
+  function riddleAnswerChecker(elementNumber, responseNumberC, responseNumberW, answer, marginTopValue ) {
+    var x = document.getElementById(elementNumber).value.toLowerCase();
+    var wrongAnswerResponses = [
+      "Error", "Invalid", "???", "Give up"];
+    if (x == answer) {
+      document.getElementById(responseNumberC).style=`font-family: 'Courier New', Courier, monospace; color: green;margin-top: ${marginTopValue}; margin-left:500;`
+      document.getElementById(responseNumberW).style="color: red; visibility: hidden;"
+    document.getElementById(elementNumber).style=`outline-color: yellow; border-color: yellow;margin-top: ${marginTopValue}; margin-left: 250;`
+    y.push("correct")
+    } else {
+      document.getElementById(elementNumber).style=`outline-color: red; border-color: red;margin-top: ${marginTopValue}; margin-left: 250;`
+
+      document.getElementById(responseNumberW).innerHTML=wrongAnswerResponses[Math.floor(Math.random()*wrongAnswerResponses.length)]
+      document.getElementById(responseNumberW).style=`font-family: 'Courier New', Courier, monospace; color: red;margin-top: ${marginTopValue}; margin-left:650;`
+      document.getElementById(responseNumberC).style="color: green; visibility: hidden;"
+    }
+    if (y.length == 7) {
+        window.location.replace("correct_formula.html")
+    }
+  }
+
+</script>
+<div class="container">
+  <input type="text" id ="riddleAnswer" name="fname" style="margin-top: -20; margin-left: 250;">
+  <button onclick="riddleAnswerChecker('riddleAnswer', 'feedbackCorrect', 'feedbackWrong', 'nitrogen', '-20')" style="margin-top: -15; margin-left:500;">Check</button>
+  <span id="feedbackCorrect" style="color: green; visibility: hidden;margin-top: -15; margin-left:500;"> </span>
+  <span id="feedbackWrong" style="color: red; visibility: hidden;margin-top: -15; margin-left:500;"></span>
+
+  <input type="text" id ="riddleAnswer1" name="fname" style="margin-top: -50; margin-left: 250;">
+  <button onclick="riddleAnswerChecker('riddleAnswer1', 'feedbackCorrect1', 'feedbackWrong1', 'oxygen', '-50')" style="margin-top: -45; margin-left:500;">Check</button>
+  <span id="feedbackCorrect1" style="color: green; visibility: hidden;margin-top: -45; margin-left:500;"> </span>
+  <span id="feedbackWrong1" style="color: red; visibility: hidden;margin-top: -45; margin-left:500;"></span>
+
+  <input type="text" id ="riddleAnswer2" name="fname" style="margin-top: -80; margin-left: 250;">
+  <button onclick="riddleAnswerChecker('riddleAnswer2', 'feedbackCorrect2', 'feedbackWrong2', 'iodine', '-80')" style="margin-top: -75; margin-left:500;">Check</button>
+  <span id="feedbackCorrect2" style="color: green; visibility: hidden;margin-top: -75; margin-left:500;"> </span>
+  <span id="feedbackWrong2" style="color: red; visibility: hidden;margin-top: -75; margin-left:500;"></span>
+
+  <input type="text" id ="riddleAnswer3" name="fname" style="margin-top: -110; margin-left: 250;">
+  <button onclick="riddleAnswerChecker('riddleAnswer3', 'feedbackCorrect3', 'feedbackWrong3', 'erbium', '-110')" style="margin-top: -105; margin-left:500;">Check</button>
+  <span id="feedbackCorrect3" style="color: green; visibility: hidden;margin-top: -105; margin-left:500;"> </span>
+  <span id="feedbackWrong3" style="color: red; visibility: hidden;margin-top: -105; margin-left:500;"></span>
+
+  <input type="text" id ="riddleAnswer4" name="fname" style="margin-top: -140; margin-left: 250;">
+  <button onclick="riddleAnswerChecker('riddleAnswer4', 'feedbackCorrect4', 'feedbackWrong4', 'phospherous', '-140')" style="margin-top: -135; margin-left:500;">Check</button>
+  <span id="feedbackCorrect4" style="color: green; visibility: hidden;margin-top: -135; margin-left:500;"> </span>
+  <span id="feedbackWrong4" style="color: red; visibility: hidden;margin-top: -135; margin-left:500;"></span>
+
+  <input type="text" id ="riddleAnswer5" name="fname" style="margin-top: -170; margin-left: 250;">
+  <button onclick="riddleAnswerChecker('riddleAnswer5', 'feedbackCorrect5', 'feedbackWrong5', 'yttrium', '-170')" style="margin-top: -165; margin-left:500;">Check</button>
+  <span id="feedbackCorrect5" style="color: green; visibility: hidden;margin-top: -165; margin-left:500;"> </span>
+  <span id="feedbackWrong5" style="color: red; visibility: hidden;margin-top: -165; margin-left:500;"></span>
+
+  <input type="text" id ="riddleAnswer6" name="fname" style="margin-top: -200; margin-left: 250;">
+  <button onclick="riddleAnswerChecker('riddleAnswer6', 'feedbackCorrect6', 'feedbackWrong6', 'hydrogen', '-200')" style="margin-top: -195; margin-left:500;">Check</button>
+  <span id="feedbackCorrect6" style="color: green; visibility: hidden;margin-top: -195; margin-left:500;"> </span>
+  <span id="feedbackWrong6" style="color: red; visibility: hidden;margin-top: -195; margin-left:500;"></span>
+</div>
+</body>
+
+
